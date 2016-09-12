@@ -1,0 +1,44 @@
+nav.navbar.navbar-default
+  
+  .container-fluid
+    
+    // Brand and toggle get grouped for better mobile display
+    .navbar-header
+      button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='.navbar-collapse', aria-expanded='false')
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand(href='/') Cognitive Services
+      
+    // Collect the nav links, forms, and other content for toggling
+    .collapse.navbar-collapse
+      ul.nav.navbar-nav
+        li.dropdown
+          a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Vision 
+            span.caret
+          ul.dropdown-menu
+            //- li
+            //-   a(href='#') Computer Vision
+            //- li
+            //-   a(href='#') Emotion
+            li
+              a(href='/face') Face
+            //- li
+            //-   a(href='#') Video
+        li.dropdown
+          a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Language 
+            span.caret
+          ul.dropdown-menu
+            //- li
+            //-   a(href='#') Bing Spell Check
+            //- li
+            //-   a(href='#') Language Understanding
+            //- li
+            //-   a(href='/face') Linguistic Analysis
+            li
+              a(href='/text-analytics') Text Analytics
+            //- li
+            //-   a(href='#') WebLM
+        //- li
+        //-   a(href='#') Link

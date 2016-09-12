@@ -1,0 +1,263 @@
+extends layout
+ 
+block content
+    h1= title
+    p= location
+    p Please upload a picture of a face to get started
+ 
+    form(action='/face' method='post' enctype="multipart/form-data")
+
+      .row
+        .col-sm-3
+          input(type="file" name="userPhoto")
+      
+        .col-sm-3
+          input(type="submit" value="Upload Image" name="submit")
+    
+    if faces
+
+      hr
+
+      div(style='position: relative; overflow-x: scroll;')
+        +frames(faces)
+        +landmarks(faces)
+        img(src= image)
+
+      hr
+
+      .raw
+        h2 Results
+        pre!= facesRaw
+
+mixin frames(faces)
+  // Mixin to create a rectangular frame around the faceRectangle attributes
+  for face, index in faces
+    div(style=` position: absolute; 
+                border: 5px solid red; 
+                top: ${face.faceRectangle.top}px; 
+                left: ${face.faceRectangle.left}px;
+                width: ${face.faceRectangle.width}px; 
+                height: ${face.faceRectangle.height}px;"`
+        data-toggle="popover" 
+        title=`Face ${index}`
+    )
+
+mixin landmarks(faces)
+  // Mixin to create a dot for each faceLandmark
+  for face in faces
+
+    // pupilLeft
+    div.landmark(
+      title='pupilLeft'
+      style=`
+        left: ${face.faceLandmarks.pupilLeft.x}px;
+        top: ${face.faceLandmarks.pupilLeft.y}px;       
+    `)
+
+    // pupilRight
+    div.landmark(
+      title='pupilRight'
+      style=`
+        left: ${face.faceLandmarks.pupilRight.x}px;
+        top: ${face.faceLandmarks.pupilRight.y}px;
+    `)
+
+    // noseTip
+    div.landmark(
+      title='noseTip'
+      style=`
+        left: ${face.faceLandmarks.noseTip.x}px;
+        top: ${face.faceLandmarks.noseTip.y}px;
+    `)
+
+    // mouthLeft
+    div.landmark(
+      title='mouthLeft'
+      style=`
+        left: ${face.faceLandmarks.mouthLeft.x}px;
+        top: ${face.faceLandmarks.mouthLeft.y}px;
+    `)
+
+    // mouthRight
+    div.landmark(
+      title='mouthRight'
+      style=`
+        left: ${face.faceLandmarks.mouthRight.x}px;
+        top: ${face.faceLandmarks.mouthRight.y}px;
+    `)
+
+    // eyebrowLeftOuter
+    div.landmark(
+      title='eyebrowLeftOuter'
+      style=`
+        left: ${face.faceLandmarks.eyebrowLeftOuter.x}px;
+        top: ${face.faceLandmarks.eyebrowLeftOuter.y}px;
+    `)
+
+    // eyebrowLeftInner
+    div.landmark(
+      title='eyebrowLeftInner'
+      style=`
+        left: ${face.faceLandmarks.eyebrowLeftInner.x}px;
+        top: ${face.faceLandmarks.eyebrowLeftInner.y}px;
+    `)
+
+    // eyeLeftOuter
+    div.landmark(
+      title='eyeLeftOuter'
+      style=`
+        left: ${face.faceLandmarks.eyeLeftOuter.x}px;
+        top: ${face.faceLandmarks.eyeLeftOuter.y}px;
+    `)
+
+    // eyeLeftTop
+    div.landmark(
+      title='eyeLeftTop'
+      style=`
+        left: ${face.faceLandmarks.eyeLeftTop.x}px;
+        top: ${face.faceLandmarks.eyeLeftTop.y}px;
+    `)
+
+    // eyeLeftBottom
+    div.landmark(
+      title='eyeLeftBottom'
+      style=`
+        left: ${face.faceLandmarks.eyeLeftBottom.x}px;
+        top: ${face.faceLandmarks.eyeLeftBottom.y}px;
+    `)
+
+    // eyeLeftInner
+    div.landmark(
+      title='eyeLeftInner'
+      style=`
+        left: ${face.faceLandmarks.eyeLeftInner.x}px;
+        top: ${face.faceLandmarks.eyeLeftInner.y}px;
+    `)
+
+    // eyebrowRightInner
+    div.landmark(
+      title='eyebrowRightInner'
+      style=`
+        left: ${face.faceLandmarks.eyebrowRightInner.x}px;
+        top: ${face.faceLandmarks.eyebrowRightInner.y}px;
+    `)
+
+    // eyebrowRightOuter
+    div.landmark(
+      title='eyebrowRightOuter'
+      style=`
+        left: ${face.faceLandmarks.eyebrowRightOuter.x}px;
+        top: ${face.faceLandmarks.eyebrowRightOuter.y}px;
+    `)
+
+    // eyeRightInner
+    div.landmark(
+      title='eyeRightInner'
+      style=`
+        left: ${face.faceLandmarks.eyeRightInner.x}px;
+        top: ${face.faceLandmarks.eyeRightInner.y}px;
+    `)
+
+    // eyeRightTop
+    div.landmark(
+      title='eyeRightTop'
+      style=`
+        left: ${face.faceLandmarks.eyeRightTop.x}px;
+        top: ${face.faceLandmarks.eyeRightTop.y}px;
+    `)
+
+    // eyeRightBottom
+    div.landmark(
+      title='eyeRightBottom'
+      style=`
+        left: ${face.faceLandmarks.eyeRightBottom.x}px;
+        top: ${face.faceLandmarks.eyeRightBottom.y}px;
+    `)
+
+    // eyeRightOuter
+    div.landmark(
+      title='eyeRightOuter'
+      style=`
+        left: ${face.faceLandmarks.eyeRightOuter.x}px;
+        top: ${face.faceLandmarks.eyeRightOuter.y}px;
+    `)
+
+    // noseRootLeft
+    div.landmark(
+      title='noseRootLeft'
+      style=`
+        left: ${face.faceLandmarks.noseRootLeft.x}px;
+        top: ${face.faceLandmarks.noseRootLeft.y}px;
+    `)
+
+    // noseRootRight
+    div.landmark(
+      title='noseRootRight'
+      style=`
+        left: ${face.faceLandmarks.noseRootRight.x}px;
+        top: ${face.faceLandmarks.noseRootRight.y}px;
+    `)
+
+    // noseLeftAlarTop
+    div.landmark(
+      title='noseLeftAlarTop'
+      style=`
+        left: ${face.faceLandmarks.noseLeftAlarTop.x}px;
+        top: ${face.faceLandmarks.noseLeftAlarTop.y}px;
+    `)
+
+    // noseRightAlarTop
+    div.landmark(
+      title='noseLeftAlarTop'
+      style=`
+        left: ${face.faceLandmarks.noseRightAlarTop.x}px;
+        top: ${face.faceLandmarks.noseRightAlarTop.y}px;
+    `)
+
+    // noseLeftAlarOutTip
+    div.landmark(
+      title='noseLeftAlarTop'
+      style=`
+        left: ${face.faceLandmarks.noseLeftAlarOutTip.x}px;
+        top: ${face.faceLandmarks.noseLeftAlarOutTip.y}px;
+    `)
+
+    // noseRightAlarOutTip
+    div.landmark(
+      title='noseRightAlarOutTip'
+      style=`
+        left: ${face.faceLandmarks.noseRightAlarOutTip.x}px;
+        top: ${face.faceLandmarks.noseRightAlarOutTip.y}px;
+    `)
+
+    // upperLipTop
+    div.landmark(
+      title='upperLipTop'
+      style=`
+        left: ${face.faceLandmarks.upperLipTop.x}px;
+        top: ${face.faceLandmarks.upperLipTop.y}px;
+    `)
+
+    // upperLipBottom
+    div.landmark(
+      title='upperLipBottom'
+      style=`
+        left: ${face.faceLandmarks.upperLipBottom.x}px;
+        top: ${face.faceLandmarks.upperLipBottom.y}px;
+    `)
+
+    // underLipTop
+    div.landmark(
+      title='noseLeftAlarTop'
+      style=`
+        left: ${face.faceLandmarks.underLipTop.x}px;
+        top: ${face.faceLandmarks.underLipTop.y}px;
+    `)
+
+    // underLipBottom
+    div.landmark(
+      title='underLipBottom'
+      style=`
+        left: ${face.faceLandmarks.underLipBottom.x}px;
+        top: ${face.faceLandmarks.underLipBottom.y}px;
+    `)

@@ -1,0 +1,52 @@
+extends layout
+
+block content
+
+  h1.page-header= title
+
+  .row
+
+    .col-sm-6
+      
+      // Left Column
+      h2 Input Text
+
+      form(action='/text-analytics' method='post')
+        .form-group
+          label(for='inputText').sr-only Input Text
+          textarea(rows='10' name='inputText')#inputText.form-control
+            if data
+              | #{data.text}
+            else 
+              | I had a wonderful experience! The rooms were wonderful and the staff were helpful.
+
+        .form-group.pull-right
+          button.btn.btn-primary Analyze
+            i.glyphicon.glyphicon-chevron-right
+    
+    .col-sm-6
+
+      if data
+        h2 Language
+        p The API returns the detected language and a numeric score between 0 and 1. Scores close to 1 indicate 100% certainty that the identified language is true. A total of 120 languages are supported.
+        table.table
+          tr
+            th Name
+            th Short Name
+            th Score
+          tr
+            td= data.language.name
+            td= data.language.iso6391Name 
+            td= data.language.score
+
+        h2 Key Phrases
+        p The API returns a list of strings denoting the key talking points in the input text. We employ techniques from Microsoft Office's sophisticated Natural Language Processing toolkit. Currently, the following languages are supported: English, German, Spanish and Japanese.
+        ul
+          for phrase in data.keyPhrases
+            li #{phrase}
+
+        h2 Sentiment
+        p The API returns a numeric score between 0 and 1. Scores close to 1 indicate positive sentiment, while scores close to 0 indicate negative sentiment. Sentiment score is generated using classification techniques. The input features to the classifier include n-grams, features generated from part-of-speech tags, and word embeddings. Currently, the following languages are supported: English, Spanish, French, Portuguese.
+        p Score: #{data.sentiment[0].score}
+        .progress
+          .progress-bar(role='progressbar' style=`width:${data.sentiment[0].score * 100}%`)

@@ -1,0 +1,14 @@
+.highlight {
+    background: yellow;
+    padding: 3px 5px;
+}
+
+/* Face Landmark */
+.landmark {
+    height: 4px;
+    width: 4px;
+    position: absolute;
+    background-color: red;
+    transform: translate(-50%,-50%);
+    border-radius: 50%;
+}
