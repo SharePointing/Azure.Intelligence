@@ -315,4 +315,5 @@ __pycache__/
 *.pyc
 
 # Image Upload directory
-public/img/uploads
+public/img/uploads/*
+.vscode
