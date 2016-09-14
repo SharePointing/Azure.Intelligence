@@ -45,6 +45,9 @@ function detectLanguage(input) {
     return new Promise(function (resolve, reject) {
 
         // Set API url
+        // TODO: We should consider moving the API Endpoint to configuration. Also seems like 
+        // a good opportunity for a discovery type service ala. Office365 if we aren't considering
+        // just allowing them to use tenant specific Endpoint
         var apiUrl = 'https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages';
 
         // Configure the request library
