@@ -1,6 +1,11 @@
+
 # Microsoft Cognitive Services NodeJS Sample
 
+This repo is to provide the resources needed to present this topic to a JavaScript/Node.js meetup group. 
+
 ## Setup
+To use these demos and samples, you must have an active Azure Subscription. This is required to generate the application keys that you will need to call the Cognitive Services APIs. 
+
 API Keys are passed into the application via environmental variables:
 * `CS_FACE_KEY` - Faces API Key
 * `CS_TEXT_KEY` - Text Analytics API Key
