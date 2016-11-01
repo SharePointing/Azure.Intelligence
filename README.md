@@ -2,6 +2,7 @@
 # Microsoft Cognitive Services NodeJS Sample
 
 This repo is to provide the resources needed to present this topic to a JavaScript/Node.js meetup group. 
+The PowerPoint Slide Deck for this topic is located here: https://github.com/SharePointing/Azure.Intelligence/blob/master/AXM.Community.Node.Intelligence.Meetup.pptx 
 
 ## Setup
 To use these demos and samples, you must have an active Azure Subscription. This is required to generate the application keys that you will need to call the Cognitive Services APIs. 
