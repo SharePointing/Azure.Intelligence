@@ -1,5 +1,5 @@
 
-# Microsoft Cognitive Services NodeJS Sample
+# Microsoft Cognitive Services NodeJS Meetup Kit
 
 This repo is to provide the resources needed to present this topic to a JavaScript/Node.js meetup group. 
 The PowerPoint Slide Deck for this topic is located here: https://github.com/SharePointing/Azure.Intelligence/blob/master/AXM.Community.Node.Intelligence.Meetup.pptx 
